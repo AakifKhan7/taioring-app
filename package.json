@@ -2,8 +2,9 @@
     "name": "tailoring-management-app",
     "version": "1.0.0",
     "description": "A Tailoring Management App with Flask and Electron",
-    "main": "main.js",
+    "main": "electron-app/main.js",
     "scripts": {
+        "start": "concurrently \"npm run start-flask\" \"npm run start-electron\"",
         "start-flask": "cd flask-app && cross-env FLASK_APP=app.py flask run --host=127.0.0.1",
         "start-electron": "electron ./electron-app",
         "clean": "rimraf dist",
@@ -13,12 +14,31 @@
         "concurrently": "^9.1.0",
         "cross-env": "^7.0.3",
         "electron": "latest",
-        "electron-builder": "^25.1.8"
+        "electron-builder": "^25.1.8",
+        "rimraf": "^5.0.0"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@capacitor/android": "^6.2.0",
         "@capacitor/cli": "^6.2.0",
         "@capacitor/core": "^6.2.0"
+    },
+    "build": {
+        "appId": "com.aakif1.tailoringapp",
+        "productName": "Tailoring Management",
+        "directories": {
+            "output": "dist"
+        },
+        "files": [
+            "electron-app/**/*",
+            "flask-app/**/*",
+            "package.json"
+        ],
+        "win": {
+            "icon": "favicon.ico",
+            "target": "nsis"
+        },
+        "publish": null
     }
 }

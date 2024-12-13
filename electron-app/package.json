@@ -11,6 +11,28 @@
     "build": "npm run clean && electron-builder"
   },
   "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^23.6.0",
+    "rimraf": "^5.0.0"
+  },
+  "build": {
+    "appId": "com.example.tailoringapp",
+    "productName": "Tailoring Management",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron-app/**/*",
+      "flask-app/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "favicon.ico",
+      "target": "nsis"
+    },
+    "publish": null
+  },
+  "dependencies": {
     "electron": "^33.2.1"
   }
 }

@@ -28,6 +28,7 @@ def add_client():
         db.session.add(new_client)
         db.session.commit()
         flash('Client added successfully!')
+        return redirect(url_for('home'))
     return render_template('add_client.html', form=form)
 
 @app.route('/client/<int:client_id>/delete', methods=['POST'])
@@ -151,4 +152,4 @@ def search():
     return render_template('search_results.html', orders=orders)
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
