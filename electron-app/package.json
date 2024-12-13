@@ -1,0 +1,14 @@
+{
+  "name": "tailoring-management-app",
+  "version": "1.0.0",
+  "description": "Tailoring Management Application",
+  "main": "main.js",
+  "scripts": {
+    "start-flask": "cd ../flask-app && SET FLASK_APP=app.py && flask run --host=127.0.0.1",
+    "start-electron": "electron .",
+    "start": "npm run start-flask & npm run start-electron"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1"
+  }
+}
