@@ -2,16 +2,18 @@
     "name": "tailoring-management-app",
     "version": "1.0.0",
     "description": "A Tailoring Management App with Flask and Electron",
-    "main": "index.js",
+    "main": "main.js",
     "scripts": {
         "start-flask": "cd flask-app && cross-env FLASK_APP=app.py flask run --host=127.0.0.1",
         "start-electron": "electron ./electron-app",
-        "start": "concurrently \"npm run start-flask\" \"npm run start-electron\""
+        "clean": "rimraf dist",
+        "build": "npm run clean && electron-builder"
     },
     "devDependencies": {
         "concurrently": "^9.1.0",
         "cross-env": "^7.0.3",
-        "electron": "latest"
+        "electron": "latest",
+        "electron-builder": "^25.1.8"
     },
     "author": "",
     "license": "ISC",

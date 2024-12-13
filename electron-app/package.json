@@ -6,7 +6,9 @@
   "scripts": {
     "start-flask": "cd ../flask-app && SET FLASK_APP=app.py && flask run --host=127.0.0.1",
     "start-electron": "electron .",
-    "start": "npm run start-flask & npm run start-electron"
+    "start": "npm run start-flask & npm run start-electron",
+    "clean": "rimraf dist",
+    "build": "npm run clean && electron-builder"
   },
   "devDependencies": {
     "electron": "^33.2.1"
